@@ -33,9 +33,10 @@ defmodule Mix.Tasks.AOC2019.Day1 do
   end
 
   def run(_args) do
-    Utils.run_puzzle(&parse_input/1, &solve_p1/1, "Part 1", "data/aoc2019/day1/example.txt", expected: 2 + 2 + 654 + 33583)
-    Utils.run_puzzle(&parse_input/1, &solve_p1/1, "Part 1", "data/aoc2019/day1/input.txt", expected: 3382284)
-    Utils.run_puzzle(&parse_input/1, &solve_p2/1, "Part 2", "data/aoc2019/day1/example.txt", expected: 2 + 2 + 966 + 50346)
-    Utils.run_puzzle(&parse_input/1, &solve_p2/1, "Part 2", "data/aoc2019/day1/input.txt", expected: 5070541)
+    input_directory = Utils.input_directory(__MODULE__)
+    Utils.run_puzzle(&parse_input/1, &solve_p1/1, "Part 1", "#{input_directory}/example.txt", expected: 2 + 2 + 654 + 33583)
+    Utils.run_puzzle(&parse_input/1, &solve_p1/1, "Part 1", "#{input_directory}/input.txt", expected: 3382284)
+    Utils.run_puzzle(&parse_input/1, &solve_p2/1, "Part 2", "#{input_directory}/example.txt", expected: 2 + 2 + 966 + 50346)
+    Utils.run_puzzle(&parse_input/1, &solve_p2/1, "Part 2", "#{input_directory}/input.txt", expected: 5070541)
   end
 end

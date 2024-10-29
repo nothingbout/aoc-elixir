@@ -1,4 +1,11 @@
 defmodule Utils do
+
+  def input_directory(module) do
+    with [day, year|_] = String.split("#{module}", ".") |> Enum.reverse() do
+      "data/#{String.downcase(year)}/#{String.downcase(day)}"
+    end
+  end
+
   def read_lines(file_path) do
     file_path
     |> File.read!()
