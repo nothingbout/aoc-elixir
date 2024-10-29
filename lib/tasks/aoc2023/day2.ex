@@ -1,6 +1,6 @@
 
 
-defmodule Mix.Tasks.Day2 do
+defmodule Mix.Tasks.AOC2023.Day2 do
   use Mix.Task
 
   defmodule CubeSet do
@@ -88,7 +88,7 @@ defmodule Mix.Tasks.Day2 do
   end
 
   def run(_args) do
-    AOC.read_lines("data/day2/input.txt") |> parse_input() |> solve_p1()
-    AOC.read_lines("data/day2/input.txt") |> parse_input() |> solve_p2()
+    Utils.read_lines("data/aoc2023/day2/input.txt") |> parse_input() |> solve_p1()
+    Utils.read_lines("data/aoc2023/day2/input.txt") |> parse_input() |> solve_p2()
   end
 end

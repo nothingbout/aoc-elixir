@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.Day3 do
+defmodule Mix.Tasks.AOC2023.Day3 do
   use Mix.Task
 
   defmodule PuzzleInput do
@@ -102,12 +102,12 @@ defmodule Mix.Tasks.Day3 do
   def parse_input(input_lines) do
     grid_map = input_lines
     |> Enum.map(&String.codepoints/1)
-    |> AOC.grid_map_from_rows(&(&1 != "."))
+    |> Utils.grid_map_from_rows(&(&1 != "."))
     %PuzzleInput{grid_map: grid_map}
   end
 
   def run(_args) do
-    AOC.read_lines("data/day3/input.txt") |> parse_input() |> solve_p1() |> AOC.print_answer("Part 1")
-    AOC.read_lines("data/day3/input.txt") |> parse_input() |> solve_p2() |> AOC.print_answer("Part 2")
+    Utils.read_lines("data/aoc2023/day3/input.txt") |> parse_input() |> solve_p1() |> Utils.print_answer("Part 1")
+    Utils.read_lines("data/aoc2023/day3/input.txt") |> parse_input() |> solve_p2() |> Utils.print_answer("Part 2")
   end
 end
