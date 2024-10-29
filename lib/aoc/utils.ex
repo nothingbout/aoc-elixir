@@ -6,6 +6,43 @@ defmodule Utils do
     |> Enum.map(&String.trim/1)
   end
 
+  def run_puzzle(input_parser, solver, label, input_file, options \\ []) do
+    input_lines = Utils.read_lines(input_file)
+    input = input_parser.(input_lines)
+
+    start_time = System.monotonic_time()
+
+    # {answer, run_count} = {solver.(input), 1}
+    {answer, run_count} = 1..Access.get(options, :run_count, 1)
+    |> Enum.map(fn _ -> {solver.(input), 1} end)
+    |> Enum.reduce(fn {a, token}, {_, counter} -> {a, counter + token} end)
+
+    end_time = System.monotonic_time()
+
+    answer_str = String.pad_leading("#{answer}", 10, " ")
+    answer_output = case options[:expected] do
+      nil -> "#{answer_str}"
+      expected when expected != answer -> "#{answer_str} (WRONG, expected: #{expected})"
+      _ -> "#{answer_str} (OK)"
+    end
+
+    elapsed_ms = System.convert_time_unit(end_time - start_time, :native, :microsecond) / 1000
+
+    run_count_output = case run_count do
+      1 -> ""
+      _ -> ", run #{integer_to_delimited(run_count)} times"
+    end
+
+    IO.puts("[#{label}]: #{answer_output}, took #{elapsed_ms} ms#{run_count_output} (#{input_file})")
+  end
+
+  def integer_to_delimited(num) do
+    case {div(num, 1000), rem(num, 1000)} do
+      {0, mod} -> Integer.to_string(mod)
+      {rem, mod} -> integer_to_delimited(rem) <> "," <> String.pad_leading(Integer.to_string(mod), 3, "0")
+    end
+  end
+
   def print_answer(answer, label) do
     IO.puts("#{label}: #{answer}")
   end
