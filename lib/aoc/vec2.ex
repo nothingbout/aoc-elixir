@@ -8,12 +8,28 @@ defmodule Vec2 do
     %__MODULE__{x: x, y: y}
   end
 
+  def zero() do
+    make(0, 0)
+  end
+
   def add(a, b) do
     make(a.x + b.x, a.y + b.y)
   end
 
   def sub(a, b) do
     make(a.x - b.x, a.y - b.y)
+  end
+
+  def vabs(a) do
+    make(abs(a.x), abs(a.y))
+  end
+
+  def vsum(a) do
+    a.x + a.y
+  end
+
+  def manhattan(a, b) do
+    vsum(vabs(sub(b, a)))
   end
 
   def grid_positions(min, max) do
