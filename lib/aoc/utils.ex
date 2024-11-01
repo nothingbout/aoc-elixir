@@ -13,6 +13,16 @@ defmodule Utils do
     |> Enum.map(&String.trim/1)
   end
 
+  def expect(value, expected, label) do
+    if value != expected do
+      IO.puts("Expectation for '#{label}' failed:")
+      IO.puts("- got:")
+      IO.inspect(value)
+      IO.puts("- expected:")
+      IO.inspect(expected)
+    end
+  end
+
   def run_puzzle(input_parser, solver, label, input_file, options \\ []) do
     input_lines = Utils.read_lines(input_file)
     input = input_parser.(input_lines)
