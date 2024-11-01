@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.AOC2023.Day1 do
+defmodule Mix.Tasks.AOC2023.Day01 do
   use Mix.Task
 
   def is_digit?(codepoint) do
@@ -67,7 +67,7 @@ defmodule Mix.Tasks.AOC2023.Day1 do
   end
 
   def run(_args) do
-    Utils.read_lines("data/aoc2023/day1/input.txt") |> solve_p1()
-    Utils.read_lines("data/aoc2023/day1/input.txt") |> solve_p2()
+    Utils.read_lines("data/aoc2023/day01/input.txt") |> solve_p1()
+    Utils.read_lines("data/aoc2023/day01/input.txt") |> solve_p2()
   end
 end

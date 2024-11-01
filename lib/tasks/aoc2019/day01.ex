@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.AOC2019.Day1 do
+defmodule Mix.Tasks.AOC2019.Day01 do
   use Mix.Task
 
   defmodule PuzzleInput do

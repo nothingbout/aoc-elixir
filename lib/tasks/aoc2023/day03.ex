@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.AOC2023.Day3 do
+defmodule Mix.Tasks.AOC2023.Day03 do
   use Mix.Task
 
   defmodule PuzzleInput do
@@ -107,7 +107,7 @@ defmodule Mix.Tasks.AOC2023.Day3 do
   end
 
   def run(_args) do
-    Utils.read_lines("data/aoc2023/day3/input.txt") |> parse_input() |> solve_p1() |> Utils.print_answer("Part 1")
-    Utils.read_lines("data/aoc2023/day3/input.txt") |> parse_input() |> solve_p2() |> Utils.print_answer("Part 2")
+    Utils.read_lines("data/aoc2023/day03/input.txt") |> parse_input() |> solve_p1() |> Utils.print_answer("Part 1")
+    Utils.read_lines("data/aoc2023/day03/input.txt") |> parse_input() |> solve_p2() |> Utils.print_answer("Part 2")
   end
 end
